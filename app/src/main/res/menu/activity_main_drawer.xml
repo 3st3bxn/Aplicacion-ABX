@@ -1,0 +1,42 @@
+<?xml version="1.0" encoding="utf-8"?>
+<menu xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
+    tools:showIn="navigation_view">
+
+    <group android:checkableBehavior="single">
+        <item
+            android:id="@+id/nav_articulos"
+            android:icon="@drawable/tienda"
+            android:title="Articulos" />
+        <item
+            android:id="@+id/nav_cotizaciones"
+            android:icon="@drawable/ic_menu_gallery"
+            android:title="Cotizaciones" />
+        <item
+            android:id="@+id/nav_slideshow"
+            android:icon="@drawable/ic_menu_slideshow"
+            android:title="Finanzas" />
+        <item
+            android:id="@+id/nav_manage"
+            android:icon="@drawable/ic_menu_manage"
+            android:title="Publicidad" />
+        <item
+            android:id="@+id/nav_seguridad"
+            android:icon="@drawable/secure"
+            android:title="Seguridad" />
+    </group>
+
+    <item android:title="Communicate">
+        <menu>
+            <item
+                android:id="@+id/nav_web"
+                android:icon="@drawable/ic_menu_share"
+                android:title="Visitar Grupo-ABX.com" />
+            <item
+                android:id="@+id/nav_send"
+                android:icon="@drawable/ic_menu_send"
+                android:title="Send" />
+        </menu>
+    </item>
+
+</menu>

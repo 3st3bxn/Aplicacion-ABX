@@ -14,11 +14,13 @@ import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.EditText;
+import android.widget.ListView;
 import android.widget.ProgressBar;
 import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private ListView listView;
 
 
     @Override
@@ -47,7 +49,9 @@ public class MainActivity extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        toolbar.setTitle("Locochon");
+        //toolbar.setTitle("Locochon");
+        listView = (ListView)this.findViewById(R.id.lv_cotizaciones);
+        new Peticiones("","mostrarCotizaciones",MainActivity.this,listView).execute();
         //navigationView.setItemIconTintList(null);
 
 

@@ -36,7 +36,6 @@
         <activity
             android:name=".SitioWeb"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Act_Articulos"></activity>
     </application>
 
 </manifest>

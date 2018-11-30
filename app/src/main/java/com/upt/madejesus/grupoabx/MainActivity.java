@@ -103,19 +103,27 @@ public class MainActivity extends AppCompatActivity
         } else if (id == R.id.nav_cotizaciones) {
             fm.beginTransaction().replace(R.id.escenario, new Fragment_Cotizacion()).commit();
 
-        } else if (id == R.id.nav_slideshow) {
+        } else if (id == R.id.nav_finanzas) {
             fm.beginTransaction().replace(R.id.escenario, new Fragment_Finanazas()).commit();
 
-        } else if (id == R.id.nav_manage) {
+        } else if (id == R.id.nav_publicidad) {
+            fm.beginTransaction().replace(R.id.escenario, new Fragment_Publicidad()).commit();
 
         } else if (id == R.id.nav_web) {
             Intent navegar = new Intent(this, SitioWeb.class);
             startActivity(navegar);
             finish();
 
-        } else if (id == R.id.nav_send) {
-
+        } else if (id == R.id.nav_salir) {
+            finish();
         }else if (id == R.id.nav_seguridad){
+            fm.beginTransaction().replace(R.id.escenario, new Fragment_Seguridad()).commit();
+
+        }else if (id == R.id.nav_software){
+            fm.beginTransaction().replace(R.id.escenario, new Fragment_Software()).commit();
+
+        }else if (id == R.id.nav_soporte){
+            fm.beginTransaction().replace(R.id.escenario, new Fragment_Soporte()).commit();
 
         }
 

@@ -13,17 +13,25 @@
             android:icon="@drawable/ic_menu_gallery"
             android:title="Cotizaciones" />
         <item
-            android:id="@+id/nav_slideshow"
+            android:id="@+id/nav_finanzas"
             android:icon="@drawable/ic_menu_slideshow"
             android:title="Finanzas" />
         <item
-            android:id="@+id/nav_manage"
+            android:id="@+id/nav_publicidad"
             android:icon="@drawable/ic_menu_manage"
             android:title="Publicidad" />
         <item
-            android:id="@+id/nav_seguridad"
+        android:id="@+id/nav_seguridad"
+        android:icon="@drawable/secure"
+        android:title="Seguridad" />
+        <item
+            android:id="@+id/nav_software"
             android:icon="@drawable/secure"
-            android:title="Seguridad" />
+            android:title="Software" />
+        <item
+            android:id="@+id/nav_soporte"
+            android:icon="@drawable/secure"
+            android:title="Soporte" />
     </group>
 
     <item android:title="Communicate">
@@ -33,9 +41,9 @@
                 android:icon="@drawable/ic_menu_share"
                 android:title="Visitar Grupo-ABX.com" />
             <item
-                android:id="@+id/nav_send"
+                android:id="@+id/nav_salir"
                 android:icon="@drawable/ic_menu_send"
-                android:title="Send" />
+                android:title="Salir" />
         </menu>
     </item>
 

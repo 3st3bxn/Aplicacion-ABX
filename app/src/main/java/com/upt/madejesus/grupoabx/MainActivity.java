@@ -96,9 +96,9 @@ public class MainActivity extends AppCompatActivity
         int id = item.getItemId();
 
         if (id == R.id.nav_articulos) {
-            //Intent articulos = new Intent(this, ActivityArticulos.class);
-           // startActivity(articulos);
-           // finish();
+            Intent articulos = new Intent(this, Act_Articulos.class);
+            startActivity(articulos);
+            finish();
         } else if (id == R.id.nav_cotizaciones) {
            // Intent cotizaciones = new Intent(this, ActivityCotizaciones.class);
             //startActivity(cotizaciones);

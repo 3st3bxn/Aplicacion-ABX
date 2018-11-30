@@ -72,7 +72,7 @@ public class Peticiones extends AsyncTask<String, String, String> {
             }catch (Exception error){}
 
         }
-        /*else if(this.metodoApi == "mostrarArticulos"){
+        else if(this.metodoApi == "mostrarArticulos"){
             try {
                 Gson gson = new Gson();
                 Articulos articulos = gson.fromJson(json,Articulos.class);
@@ -85,6 +85,6 @@ public class Peticiones extends AsyncTask<String, String, String> {
                     Log.e("nombre",articulos.getArticulos().get(i).getNombre_articulo());
                 }
             }catch (Exception error){}
-        }*/
+        }
     }
 }

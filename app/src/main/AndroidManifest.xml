@@ -1,23 +1,18 @@
 <?xml version="1.0" encoding="utf-8"?>
 <manifest xmlns:android="http://schemas.android.com/apk/res/android"
-    package="com.upt.madejesus.grupoabx">
-
-    <uses-permission android:name="android.permission.INTERNET" />
+    package="com.esteban.proyectos.abx">
 
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Grupo ABX"
+        android:label="@string/app_name"
         android:roundIcon="@mipmap/ic_launcher_round"
         android:supportsRtl="true"
         android:theme="@style/AppTheme">
         <activity
-            android:name=".MainActivity"
-            android:label="@string/activity_cotizaciones"
-            android:theme="@style/AppTheme.NoActionBar" />
-        <activity
-            android:name=".SplashScreen"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar">
+            android:name=".Act_cotizaciones"
+            android:label="@string/title_activity_act_cotizaciones"
+            android:theme="@style/AppTheme.NoActionBar">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
@@ -25,17 +20,21 @@
             </intent-filter>
         </activity>
         <activity
-            android:name=".IntroduccionABX"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:name=".Act_articulos"
+            android:label="@string/title_activity_act_articulos"
+            android:theme="@style/AppTheme.NoActionBar" />
         <activity
-            android:name=".Introduccion_dos"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:name=".Act_nueva_cotizacion"
+            android:label="@string/title_activity_act_nueva_cotizacion"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
         <activity
-            android:name=".Introduccion_tres"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity
-            android:name=".SitioWeb"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+            android:name=".Act_descripcion_cotizacion"
+            android:label="@string/title_activity_act_descripcion_cotizacion"
+            android:theme="@style/AppTheme.NoActionBar">
+
+        </activity>
     </application>
 
 </manifest>

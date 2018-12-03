@@ -29,10 +29,15 @@ public class Peticiones extends AsyncTask<String, String, String> {
 
 
     public Peticiones(String json, String metodoApi, Activity activity, ListView listView) {
-        this.json       = json;
-        this.metodoApi  = metodoApi;
-        this.activity   = activity;
-        this.listView   = listView;
+        this.json = json;
+        this.metodoApi = metodoApi;
+        this.activity = activity;
+        this.listView = listView;
+    }
+
+    public Peticiones(String json, String metodoApi) {
+        this.json = json;
+        this.metodoApi = metodoApi;
     }
 
     @Override

@@ -13,9 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.ListView;
 
 public class Act_cotizaciones extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private ListView listView;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -41,6 +43,9 @@ public class Act_cotizaciones extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_cotizaciones);
         navigationView.setNavigationItemSelectedListener(this);
+
+        listView = (ListView)this.findViewById(R.id.lv_cotizaciones);
+        new Peticiones("","mostrarCotizaciones",Act_cotizaciones.this,listView).execute();
     }
 
     @Override

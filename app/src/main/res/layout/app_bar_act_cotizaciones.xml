@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    tools:context=".Act_Cotizaciones">
+    tools:context=".Act_cotizaciones">
 
     <android.support.design.widget.AppBarLayout
         android:layout_width="match_parent"
@@ -22,12 +22,27 @@
 
     <include layout="@layout/content_act_cotizaciones" />
 
-    <android.support.design.widget.FloatingActionButton
-        android:id="@+id/fab_cotizaciones"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:layout_gravity="bottom|end"
-        android:layout_margin="@dimen/fab_margin"
-        app:srcCompat="@android:drawable/ic_dialog_email" />
+
+    <RelativeLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent">
+
+        <com.github.clans.fab.FloatingActionMenu
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            app:menu_fab_label="Menu"
+            android:layout_alignParentBottom="true"
+            android:layout_alignParentRight="true">
+
+            <com.github.clans.fab.FloatingActionButton
+                android:id="@+id/fab"
+                android:layout_width="match_parent"
+                android:layout_height="match_parent"
+                app:fab_label="Realizar cotización"
+                android:src="@drawable/ic_submenu"/>
+        </com.github.clans.fab.FloatingActionMenu>
+
+    </RelativeLayout>
+
 
 </android.support.design.widget.CoordinatorLayout>

@@ -13,11 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
-import android.widget.ListView;
+import android.widget.Button;
 
 public class Act_cotizaciones extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
-    private ListView listView;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -26,13 +26,15 @@ public class Act_cotizaciones extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_cotizaciones);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_cotizaciones);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
+
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
+       fab.setOnClickListener(new View.OnClickListener() {
+           @Override
+           public void onClick(View view) {
+               Intent cotizacion = new Intent(getApplicationContext(), Act_nueva_cotizacion.class);
+               startActivity(cotizacion);
+               finish();
+           }
         });
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_cotizaciones);
@@ -43,10 +45,11 @@ public class Act_cotizaciones extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view_cotizaciones);
         navigationView.setNavigationItemSelectedListener(this);
-
-        listView = (ListView)this.findViewById(R.id.lv_cotizaciones);
-        new Peticiones("","mostrarCotizaciones",Act_cotizaciones.this,listView).execute();
     }
+
+
+
+
 
     @Override
     public void onBackPressed() {

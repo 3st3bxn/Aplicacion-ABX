@@ -1,8 +1,7 @@
 package com.esteban.proyectos.abx;
 
+import android.content.Intent;
 import android.os.Bundle;
-import android.support.design.widget.FloatingActionButton;
-import android.support.design.widget.Snackbar;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -12,9 +11,13 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.Button;
+import android.widget.ListView;
 
 public class Act_descripcion_cotizacion extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
+    private ListView listView;
+    private Button btn_editar, btn_agregar, btn_eliminar, btn_compartir, btn_facturar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -40,8 +43,60 @@ public class Act_descripcion_cotizacion extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-    }
+        String id = "1";
+        String json = "{\"id_cotizacion\" : \""+ id +"\"}";
 
+        listView = (ListView)this.findViewById(R.id.lv_articulos_cotizacion);
+        new Peticiones(json,"consultarArticulosCotizacion",Act_descripcion_cotizacion.this,listView).execute();
+
+        btn_editar    = (Button)findViewById(R.id.btn_editar);
+        btn_agregar   = (Button)findViewById(R.id.btn_agregar_articulo_cotizacion);
+        btn_eliminar  = (Button)findViewById(R.id.btn_eliminar);
+        btn_compartir = (Button)findViewById(R.id.btn_compartir);
+        btn_facturar  = (Button)findViewById(R.id.btn_facturar);
+
+        btn_agregar.setVisibility(View.INVISIBLE);
+        btn_facturar.setVisibility(View.INVISIBLE);
+
+        btn_editar.setVisibility(View.VISIBLE);
+        btn_compartir.setVisibility(View.VISIBLE);
+        btn_eliminar.setVisibility(View.VISIBLE);
+
+        btn_facturar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+
+                btn_agregar.setVisibility(View.INVISIBLE);
+                btn_facturar.setVisibility(View.INVISIBLE);
+
+                btn_editar.setVisibility(View.VISIBLE);
+                btn_compartir.setVisibility(View.VISIBLE);
+                btn_eliminar.setVisibility(View.VISIBLE);
+
+            }
+        });
+
+        btn_agregar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                Intent i = new Intent(getApplicationContext(),Agregar_articulos_cotizacion.class);
+
+                startActivity(i);
+            }
+        });
+
+        btn_editar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                btn_agregar.setVisibility(View.VISIBLE);
+                btn_facturar.setVisibility(View.VISIBLE);
+
+                btn_editar.setVisibility(View.INVISIBLE);
+                btn_compartir.setVisibility(View.INVISIBLE);
+                btn_eliminar.setVisibility(View.INVISIBLE);
+            }
+        });
+    }
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);
@@ -80,18 +135,19 @@ public class Act_descripcion_cotizacion extends AppCompatActivity
         // Handle navigation view item clicks here.
         int id = item.getItemId();
 
-        if (id == R.id.nav_camera) {
-            // Handle the camera action
-        } else if (id == R.id.nav_gallery) {
-
-        } else if (id == R.id.nav_slideshow) {
-
-        } else if (id == R.id.nav_manage) {
-
-        } else if (id == R.id.nav_share) {
-
-        } else if (id == R.id.nav_send) {
-
+        if (id == R.id.nav_articulos) {
+            Intent i = new Intent(getApplicationContext(), Act_articulos.class);
+            startActivity(i);
+            finish();
+        } else if (id == R.id.nav_cotizaciones) {
+            Intent i = new Intent(getApplicationContext(), Act_cotizaciones.class);
+            startActivity(i);
+            finish();
+        } else if (id == R.id.nav_visitar) {
+            Intent i = new Intent(getApplicationContext(), Pag_Web.class);
+            startActivity(i);
+        } else if (id == R.id.nav_salir) {
+            finish();
         }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

@@ -19,7 +19,7 @@
         <activity
             android:name=".Act_cotizaciones"
             android:label="@string/title_activity_act_cotizaciones"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar"></activity>
         <activity
             android:name=".Act_articulos"
             android:label="@string/title_activity_act_articulos"
@@ -48,10 +48,15 @@
             </intent-filter>
         </activity>
         <activity
+            android:name=".IntroduccionUno"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
             android:name=".Introduccion_dos"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Introduccion_tres"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+        <activity
+            android:name=".Introduccion_tres"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity android:name=".Pag_Web"></activity>
     </application>
 
 </manifest>

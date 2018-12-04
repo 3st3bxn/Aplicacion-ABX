@@ -13,8 +13,11 @@ import android.support.v7.app.AppCompatActivity;
 import android.support.v7.widget.Toolbar;
 import android.view.Menu;
 import android.view.MenuItem;
+import android.widget.AdapterView;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.ListView;
+import android.widget.Toast;
 
 public class Act_cotizaciones extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
@@ -39,6 +42,20 @@ public class Act_cotizaciones extends AppCompatActivity
 
         listView = (ListView)this.findViewById(R.id.lv_cotizaciones);
         new Peticiones("","mostrarCotizaciones",Act_cotizaciones.this,listView).execute();
+
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,R.layout.item_lista_cotizaciones);
+        listView.setAdapter(adapter);
+
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
+                Toast.makeText(getApplicationContext(), "Posición "+position, Toast.LENGTH_SHORT).show();
+                /*Intent i = new Intent(getApplicationContext(), Act_descripcion_cotizacion.class);
+                i.putExtra("ID_COTIZACION",getApplicationContext().g);*/
+
+            }
+        });
+
     }
 
     public void nuevaCotizacion(View view) {

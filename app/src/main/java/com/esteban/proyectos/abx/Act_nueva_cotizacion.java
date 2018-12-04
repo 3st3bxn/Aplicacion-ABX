@@ -16,6 +16,7 @@ import android.view.Menu;
 import android.view.MenuItem;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.Toast;
 
 import org.json.JSONException;
 import org.json.JSONObject;
@@ -49,7 +50,12 @@ public class Act_nueva_cotizacion extends AppCompatActivity{
                 }catch (JSONException error){}
 
                 Log.d("Mi campo tiene",json_obj.toString());
-                new Peticiones(json_obj.toString(),"agregarCotizacion").execute();
+                try{
+                    new Peticiones(json_obj.toString(),"agregarCotizacion").execute();
+                    Toast.makeText(getApplicationContext(), "Cotización agregada", Toast.LENGTH_LONG).show();
+                }catch (Exception error){
+                    Toast.makeText(getApplicationContext(), "Error al agregar", Toast.LENGTH_LONG).show();
+                }
                 Intent i = new Intent(getApplicationContext(), Act_cotizaciones.class);
                 startActivity(i);
                 finish();

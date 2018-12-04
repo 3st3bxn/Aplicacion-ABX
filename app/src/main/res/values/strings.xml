@@ -19,16 +19,19 @@
     <string name="tv_nombre">Nombre de la cotización</string>
     <string name="tv_descripcion">Descripción adicional de la cotización</string>
 
-    <string name="titulo_descripcion">UPTlax</string>
+    <string name="titulo_descripcion">Nombre cotización</string>
     <string name="btn_editar">Editar</string>
     <string name="btn_eliminar">Eliminar</string>
     <string name="btn_compartir">Compartir</string>
+    <string name="btn_facturar">Facturar</string>
+    <string name="btn_agregar">+</string>
     <string name="tv_subtotal">Subtotal</string>
-    <string name="tv_r_subtotal">$24500.00</string>
+    <string name="tv_r_subtotal">0.0</string>
     <string name="tv_iva">IVA</string>
-    <string name="tv_r_iva">$3920.00</string>
+    <string name="tv_r_iva">0.0</string>
     <string name="tv_total">Total</string>
-    <string name="tv_r_total">$28420.00</string>
+    <string name="tv_r_total">0.0</string>
+
 
     //Introduccion
     <string name="txt_1">¿Qué es?</string>
@@ -41,5 +44,22 @@
 
     <string name="boton_regresar">Regresar</string>
 
+    <string name="tv_tit_concepto">Concepto</string>
+    <string name="tv_tit_precio">Precio</string>
+    <string name="tv_tit_cantidad">Cantidad</string>
+    <string name="tv_tit_total">Total</string>
+
+    <string name="tv_concepto_ac">USB</string>
+    <string name="tv_precio_ac">180.00</string>
+    <string name="tv_cantidad_ac">30</string>
+    <string name="tv_total_ac">5400.00</string>
+    <string name="title_activity_agregar_articulos_cotizacion">Descripción</string>
+
+    <string name="et_cantidad_agregar">Cantidad</string>
+    <string name="tv_articulo_agregar">Elegir articulo</string>
+    <string name="tv_cantidad_agregar">Cantidad</string>
+
+    <string name="btn_agregar_articulo">Agregar a cotización</string>
+    <string name="tv_nombre_articulo">Cámara</string>
 
 </resources>

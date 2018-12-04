@@ -5,10 +5,15 @@ import android.content.Context;
 import android.os.AsyncTask;
 import android.util.Log;
 import android.widget.ListView;
+import android.widget.Spinner;
+import android.widget.TextView;
 
 import com.esteban.proyectos.abx.adaptadores.AdaptadorArticulos;
+import com.esteban.proyectos.abx.adaptadores.AdaptadorArticulosCotizacion;
+import com.esteban.proyectos.abx.adaptadores.AdaptadorArticulosSpinner;
 import com.esteban.proyectos.abx.adaptadores.AdaptadorCotizaciones;
 import com.esteban.proyectos.abx.clasesLista.Articulos;
+import com.esteban.proyectos.abx.clasesLista.Articulos_cotizacion;
 import com.esteban.proyectos.abx.clasesLista.Cotizaciones;
 import com.google.gson.Gson;
 
@@ -22,10 +27,10 @@ import org.apache.http.util.EntityUtils;
 public class Peticiones extends AsyncTask<String, String, String> {
     private String   json;
     private String   metodoApi;
-    private Context context;
+    private Spinner  spinner;
+    private Context  context;
     private Activity activity;
     private ListView listView;
-
 
 
     public Peticiones(String json, String metodoApi, Activity activity, ListView listView) {
@@ -33,11 +38,20 @@ public class Peticiones extends AsyncTask<String, String, String> {
         this.metodoApi = metodoApi;
         this.activity = activity;
         this.listView = listView;
+        this.spinner = null;
     }
 
     public Peticiones(String json, String metodoApi) {
         this.json = json;
         this.metodoApi = metodoApi;
+        this.spinner = null;
+    }
+    public Peticiones(String json, String metodoApi, Activity activity, Spinner spinner) {
+        this.json = json;
+        this.metodoApi  = metodoApi;
+        this.activity   = activity;
+        this.listView   = null;
+        this.spinner    = spinner;
     }
 
     @Override
@@ -81,7 +95,7 @@ public class Peticiones extends AsyncTask<String, String, String> {
             }catch (Exception error){}
 
         }
-        else if(this.metodoApi == "mostrarArticulos"){
+        else if(this.metodoApi == "mostrarArticulos" && this.listView != null){
             try {
                 Gson gson = new Gson();
                 Articulos articulos = gson.fromJson(json,Articulos.class);
@@ -93,6 +107,54 @@ public class Peticiones extends AsyncTask<String, String, String> {
                 for (int i=0; i< articulos.getArticulos().size();i++){
                     Log.e("nombre",articulos.getArticulos().get(i).getNombre_articulo());
                 }
+            }catch (Exception error){}
+        }
+
+        else if(this.metodoApi == "mostrarArticulos"){
+
+            try {
+                Gson gson = new Gson();
+                Articulos articulos = gson.fromJson(json,Articulos.class);
+                //generar el adaptador
+
+                AdaptadorArticulosSpinner adaptador = new AdaptadorArticulosSpinner(articulos.getArticulos(),this.activity);
+                adaptador.notifyDataSetChanged();
+                spinner.setAdapter(adaptador);
+                for (int i=0; i< articulos.getArticulos().size();i++){
+                    Log.e("nombre",articulos.getArticulos().get(i).getNombre_articulo());
+                }
+            }catch (Exception error){}
+        }
+
+        else if(this.metodoApi == "consultarArticulosCotizacion"){
+            try {
+                int i;
+                Double subtotal = 0.0, iva = 0.0, total = 0.0;
+                TextView tv_subtotal          = (TextView)activity.findViewById(R.id.tv_rsubtotal);
+                TextView tv_iva               = (TextView)activity.findViewById(R.id.tv_r_iva);
+                TextView tv_total             = (TextView)activity.findViewById(R.id.tv_r_total);
+                TextView tv_nombre_cotizacion = (TextView)activity.findViewById(R.id.tv_titulo_descripcion_cotizacion);
+                Gson gson = new Gson();
+                Articulos_cotizacion articulos_cotizacion = gson.fromJson(json,Articulos_cotizacion.class);
+                //generar el adaptador
+
+                AdaptadorArticulosCotizacion adaptador = new AdaptadorArticulosCotizacion(articulos_cotizacion.getArticulos_cotizacion(),this.activity);
+                adaptador.notifyDataSetChanged();
+                listView.setAdapter(adaptador);
+                for (i=0; i< articulos_cotizacion.getArticulos_cotizacion().size();i++){
+                    double cantidad =Double.valueOf(articulos_cotizacion.getArticulos_cotizacion().get(i).getCantidad());
+                    double precio = Double.valueOf(articulos_cotizacion.getArticulos_cotizacion().get(i).getPrecio());
+                    subtotal += (cantidad*precio);
+                    Log.e("Concepto",articulos_cotizacion.getArticulos_cotizacion().get(i).getConcepto());
+                }
+
+                iva = subtotal * 0.16;
+                total = iva + subtotal;
+
+                tv_subtotal.setText("$"+subtotal);
+                tv_iva.setText("$"+iva);
+                tv_total.setText("$" + total);
+                tv_nombre_cotizacion.setText(articulos_cotizacion.getArticulos_cotizacion().get(i-1).getNombre_cotizacion());
             }catch (Exception error){}
         }
     }

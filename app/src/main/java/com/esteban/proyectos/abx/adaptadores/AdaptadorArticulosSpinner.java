@@ -13,17 +13,17 @@ import com.esteban.proyectos.abx.clasesLista.Articulo;
 
 import java.util.ArrayList;
 
-public class AdaptadorArticulos extends BaseAdapter {
+public class AdaptadorArticulosSpinner extends BaseAdapter {
+
     private ArrayList<Articulo> articulos;
     private LayoutInflater inflater;
     private Activity activity;
 
-
-
-    public AdaptadorArticulos(ArrayList<Articulo> articulos, Activity activity){
+    public AdaptadorArticulosSpinner(ArrayList<Articulo> articulos, Activity activity) {
         this.articulos = articulos;
-        this.activity  = activity;
+        this.activity = activity;
     }
+
     @Override
     public int getCount() {
         return this.articulos.size();
@@ -38,21 +38,17 @@ public class AdaptadorArticulos extends BaseAdapter {
     public long getItemId(int position) {
         return 0;
     }
+
     @Override
     public View getView(int position, View view, ViewGroup parent) {
         if(inflater == null){
             inflater = (LayoutInflater)this.activity.getSystemService(Context.LAYOUT_INFLATER_SERVICE);
         }
-        view = inflater.inflate(R.layout.item_lista_articulos, null);
-        TextView tv_nombre_articulo = view.findViewById(R.id.tv_nombre_articulo);
-        TextView tv_existencias     = view.findViewById(R.id.tv_existencias);
-        TextView tv_precio          = view.findViewById(R.id.tv_tit_precio);
+        view = inflater.inflate(R.layout.item_spinner_articulos, null);
 
+        TextView tv_nombre_articulo = view.findViewById(R.id.tv_nombre_articulo);
         tv_nombre_articulo.setText(this.articulos.get(position).getNombre_articulo());
-        tv_existencias.setText(this.articulos.get(position).getExistencias());
-        tv_precio.setText(this.articulos.get(position).getPrecio());
+
         return view;
     }
-
 }
-

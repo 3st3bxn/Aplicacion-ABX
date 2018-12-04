@@ -12,9 +12,10 @@ public class Introduccion_tres extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduccion_tres);
     }
-    public void Menu(View view){
+    public void Menu (View view){
         Intent menu = new Intent(getApplicationContext(), Act_cotizaciones.class);
         startActivity(menu);
         finish();
     }
+
 }

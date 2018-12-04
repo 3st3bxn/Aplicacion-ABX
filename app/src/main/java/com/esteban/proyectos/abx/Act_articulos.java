@@ -26,14 +26,7 @@ public class Act_articulos extends AppCompatActivity
         Toolbar toolbar = (Toolbar) findViewById(R.id.toolbar_articulos);
         setSupportActionBar(toolbar);
 
-        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab_articulos);
-        fab.setOnClickListener(new View.OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                Snackbar.make(view, "Replace with your own action", Snackbar.LENGTH_LONG)
-                        .setAction("Action", null).show();
-            }
-        });
+        FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab2);
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_articulos);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -46,6 +39,12 @@ public class Act_articulos extends AppCompatActivity
 
         listView = (ListView)this.findViewById(R.id.lv_articulos);
         new Peticiones("","mostrarArticulos",Act_articulos.this,listView).execute();
+    }
+
+    public void nuevaCotizacion(View view) {
+        Intent cotizacion = new Intent(getApplicationContext(), Act_nueva_cotizacion.class);
+        startActivity(cotizacion);
+        finish();
     }
 
     @Override

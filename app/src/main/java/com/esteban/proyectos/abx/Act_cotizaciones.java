@@ -27,14 +27,6 @@ public class Act_cotizaciones extends AppCompatActivity
         setSupportActionBar(toolbar);
 
         FloatingActionButton fab = (FloatingActionButton) findViewById(R.id.fab);
-       /*fab.setOnClickListener(new View.OnClickListener() {
-         //  @Override
-           //public void onClick(View view) {
-               Intent cotizacion = new Intent(getApplicationContext(), Act_nueva_cotizacion.class);
-               startActivity(cotizacion);
-               finish();
-           }
-        });*/
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_cotizaciones);
         ActionBarDrawerToggle toggle = new ActionBarDrawerToggle(
@@ -49,10 +41,10 @@ public class Act_cotizaciones extends AppCompatActivity
         new Peticiones("","mostrarCotizaciones",Act_cotizaciones.this,listView).execute();
     }
 
-    public void holo(View view) {
+    public void nuevaCotizacion(View view) {
         Intent cotizacion = new Intent(getApplicationContext(), Act_nueva_cotizacion.class);
         startActivity(cotizacion);
-        finish();
+        //finish();
     }
 
 
@@ -105,6 +97,9 @@ public class Act_cotizaciones extends AppCompatActivity
         } else if (id == R.id.nav_cotizaciones) {
 
         } else if (id == R.id.nav_visitar) {
+            Intent navegar = new Intent(this, Pag_Web.class);
+            startActivity(navegar);
+            finish();
 
         } else if (id == R.id.nav_salir) {
             finish();

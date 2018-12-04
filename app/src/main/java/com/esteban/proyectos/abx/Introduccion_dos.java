@@ -12,14 +12,15 @@ public class Introduccion_dos extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_introduccion_dos);
     }
-    public void Menu(View view){
+
+    public void Menu (View view){
         Intent menu = new Intent(getApplicationContext(), Act_cotizaciones.class);
         startActivity(menu);
         finish();
     }
 
     public void Siguiente(View view){
-        Intent siguiente = new Intent(getApplicationContext(), Introduccion_tres.class);
+        Intent siguiente = new Intent(getApplicationContext(), Act_cotizaciones.class);
         startActivity(siguiente);
         finish();
     }

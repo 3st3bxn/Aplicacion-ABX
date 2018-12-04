@@ -38,8 +38,9 @@
                 android:id="@+id/fab"
                 android:layout_width="match_parent"
                 android:layout_height="match_parent"
-                android:onClick="holo"
+                android:onClick="nuevaCotizacion"
                 android:src="@drawable/ic_submenu"
+                app:fab_colorDisabled="@android:color/background_dark"
                 app:fab_label="Realizar cotización" />
         </com.github.clans.fab.FloatingActionMenu>
 

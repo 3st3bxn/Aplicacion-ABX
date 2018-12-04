@@ -6,11 +6,23 @@
     <group android:checkableBehavior="single">
         <item
             android:id="@+id/nav_articulos"
-            android:icon="@drawable/ic_menu_camera"
+            android:icon="@drawable/ic_local_grocery_store_black_24dp"
             android:title="Articulos" />
         <item
             android:id="@+id/nav_cotizaciones"
-            android:icon="@drawable/ic_menu_gallery"
+            android:icon="@drawable/ic_assessment_black_24dp"
+            android:title="Cotizaciones" />
+        <item
+            android:id="@+id/nav_finanzas"
+            android:icon="@drawable/ic_monetization_on_black_24dp"
+            android:title="Finanzas" />
+        <item
+            android:id="@+id/nav_publicidad"
+            android:icon="@drawable/ic_monetization_on_black_24dp"
+            android:title="Publicidad" />
+        <item
+            android:id="@+id/nav_cotizaciones3"
+            android:icon="@drawable/ic_monetization_on_black_24dp"
             android:title="Cotizaciones" />
     </group>
 

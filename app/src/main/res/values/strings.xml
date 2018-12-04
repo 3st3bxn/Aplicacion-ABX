@@ -30,5 +30,16 @@
     <string name="tv_total">Total</string>
     <string name="tv_r_total">$28420.00</string>
 
+    //Introduccion
+    <string name="txt_1">¿Qué es?</string>
+    <string name="txt_2">Rellenar</string>
+    <string name="boton_omitir">omitir</string>
+    <string name="txt_Intro_1">¿Para que sirve?</string>
+    <string name="txt_Intro_2">Rellenar con informacion acerca de la empresa</string>
+    <string name="txt_Intro_contacto">Contactenos</string>
+    <string name="txt_Intro_info_contacto">Rellenar con informacion de contacto</string>
+
+    <string name="boton_regresar">Regresar</string>
+
 
 </resources>

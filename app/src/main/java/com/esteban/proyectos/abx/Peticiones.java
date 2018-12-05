@@ -87,6 +87,7 @@ public class Peticiones extends AsyncTask<String, String, String> {
                 //generar el adaptador
 
                 AdaptadorCotizaciones adaptador = new AdaptadorCotizaciones(cotizaciones.getCotizaciones(),this.activity);
+                //Log.e("Resultado",cotizaciones.getCotizaciones().toString());
                 adaptador.notifyDataSetChanged();
                 listView.setAdapter(adaptador);
                 for (int i=0; i< cotizaciones.getCotizaciones().size();i++){

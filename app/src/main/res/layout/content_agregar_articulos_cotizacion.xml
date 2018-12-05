@@ -17,7 +17,7 @@
         android:layout_marginTop="8dp"
         android:ems="10"
         android:hint="@string/et_cantidad_agregar"
-        android:inputType="textPersonName"
+        android:inputType="number"
         android:textSize="14sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -26,10 +26,16 @@
 
     <Spinner
         android:id="@+id/sp_articulos"
-        android:layout_width="349dp"
-        android:layout_height="31dp"
-        tools:layout_editor_absoluteX="8dp"
-        tools:layout_editor_absoluteY="51dp" />
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:padding="10sp"
+
+        android:layout_marginTop="8dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toBottomOf="@+id/tv_articulo_agregar" />
+
 
     <TextView
         android:id="@+id/tv_articulo_agregar"
@@ -60,11 +66,11 @@
         app:layout_constraintTop_toBottomOf="@+id/sp_articulos" />
 
     <Button
-        android:id="@+id/btn_agregar_articulo_cotizacion"
+        android:id="@+id/btn_agregar_articulo"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:layout_marginStart="8dp"
-        android:layout_marginLeft="8dp"
+        android:layout_marginStart="22dp"
+        android:layout_marginLeft="22dp"
         android:layout_marginTop="8dp"
         android:layout_marginEnd="8dp"
         android:layout_marginRight="8dp"

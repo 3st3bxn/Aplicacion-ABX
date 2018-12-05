@@ -19,7 +19,7 @@
         <activity
             android:name=".Act_cotizaciones"
             android:label="@string/title_activity_act_cotizaciones"
-            android:theme="@style/AppTheme.NoActionBar"></activity>
+            android:theme="@style/AppTheme.NoActionBar" ></activity>
         <activity
             android:name=".Act_articulos"
             android:label="@string/title_activity_act_articulos"
@@ -31,7 +31,13 @@
         <activity
             android:name=".Act_descripcion_cotizacion"
             android:label="@string/title_activity_act_descripcion_cotizacion"
-            android:theme="@style/AppTheme.NoActionBar" />
+            android:theme="@style/AppTheme.NoActionBar">
+            <intent-filter>
+                <action android:name="android.intent.action.MAIN" />
+
+                <category android:name="android.intent.category.LAUNCHER" />
+            </intent-filter>
+        </activity>
         <activity
             android:name=".Pag_Web"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
@@ -41,11 +47,11 @@
         <activity
             android:name=".SplashScreen"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-            <intent-filter>
+            <!--<intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
-            </intent-filter>
+            </intent-filter>-->
         </activity>
 
         <activity
@@ -54,6 +60,10 @@
         <activity
             android:name=".Introduccion_tres"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+        <activity
+            android:name=".Agregar_articulos_cotizacion"
+            android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
+
     </application>
 
 </manifest>

@@ -17,7 +17,7 @@ import android.widget.ListView;
 public class Act_descripcion_cotizacion extends AppCompatActivity
         implements NavigationView.OnNavigationItemSelectedListener {
     private ListView listView;
-    private Button btn_editar, btn_agregar, btn_eliminar, btn_compartir, btn_facturar;
+    private Button btn_editar, btn_agregar_art, btn_eliminar, btn_compartir, btn_facturar;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -43,19 +43,19 @@ public class Act_descripcion_cotizacion extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        String id = "1";
-        String json = "{\"id_cotizacion\" : \""+ id +"\"}";
+        final String id_cotizacion = "1";
+        String json = "{\"id_cotizacion\" : \""+ id_cotizacion +"\"}";
 
         listView = (ListView)this.findViewById(R.id.lv_articulos_cotizacion);
         new Peticiones(json,"consultarArticulosCotizacion",Act_descripcion_cotizacion.this,listView).execute();
 
         btn_editar    = (Button)findViewById(R.id.btn_editar);
-        btn_agregar   = (Button)findViewById(R.id.btn_agregar_articulo_cotizacion);
+        btn_agregar_art   = (Button)findViewById(R.id.btn_agregar_articulo);
         btn_eliminar  = (Button)findViewById(R.id.btn_eliminar);
         btn_compartir = (Button)findViewById(R.id.btn_compartir);
         btn_facturar  = (Button)findViewById(R.id.btn_facturar);
 
-        btn_agregar.setVisibility(View.INVISIBLE);
+        btn_agregar_art.setVisibility(View.INVISIBLE);
         btn_facturar.setVisibility(View.INVISIBLE);
 
         btn_editar.setVisibility(View.VISIBLE);
@@ -66,7 +66,7 @@ public class Act_descripcion_cotizacion extends AppCompatActivity
             @Override
             public void onClick(View v) {
 
-                btn_agregar.setVisibility(View.INVISIBLE);
+                btn_agregar_art.setVisibility(View.INVISIBLE);
                 btn_facturar.setVisibility(View.INVISIBLE);
 
                 btn_editar.setVisibility(View.VISIBLE);
@@ -76,11 +76,11 @@ public class Act_descripcion_cotizacion extends AppCompatActivity
             }
         });
 
-        btn_agregar.setOnClickListener(new View.OnClickListener() {
+        btn_agregar_art.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),Agregar_articulos_cotizacion.class);
-
+                i.putExtra("id_cotizacion",id_cotizacion);
                 startActivity(i);
             }
         });
@@ -88,7 +88,7 @@ public class Act_descripcion_cotizacion extends AppCompatActivity
         btn_editar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
-                btn_agregar.setVisibility(View.VISIBLE);
+                btn_agregar_art.setVisibility(View.VISIBLE);
                 btn_facturar.setVisibility(View.VISIBLE);
 
                 btn_editar.setVisibility(View.INVISIBLE);

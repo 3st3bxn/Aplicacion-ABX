@@ -35,13 +35,13 @@
 
     //Introduccion
     <string name="txt_1">¿Qué es?</string>
-    <string name="txt_2">Rellenar</string>
+    <string name="txt_2">Grupo de personas comprometidas con el cliente, personas al que cada reto se facinan, no se quiebran, solucionadores de problemas en pocas palabras. Somos exigentes y queremos que ocurran las cosas que no han sucedido.</string>
     <string name="boton_omitir">omitir</string>
     <string name="txt_Intro_1">¿Para que sirve?</string>
     <string name="txt_Intro_2">Rellenar con informacion acerca de la empresa</string>
     <string name="txt_Intro_contacto">Contactenos</string>
     <string name="txt_Intro_info_contacto">Rellenar con informacion de contacto</string>
-
+    //Intruccion
     <string name="boton_regresar">Regresar</string>
 
     <string name="tv_tit_concepto">Concepto</string>

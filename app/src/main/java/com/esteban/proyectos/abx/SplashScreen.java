@@ -32,7 +32,6 @@ public class SplashScreen extends AppCompatActivity {
                         }
                     }
                 }catch (InterruptedException e){
-                    Toast.makeText(SplashScreen.this, "Error al iniciar la App", Toast.LENGTH_SHORT).show();
                 }finally {
                     onContinue();
                 }
@@ -50,7 +49,7 @@ public class SplashScreen extends AppCompatActivity {
 
     public void onContinue(){
         //Log.d("mensageFinal", "termine de cargar");
-       Intent Introduccion = new Intent(this, Act_cotizaciones.class);
+       Intent Introduccion = new Intent(this, Introduccion_uno.class);
         startActivity(Introduccion);
         finish();
     }

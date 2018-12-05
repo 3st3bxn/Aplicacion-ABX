@@ -12,18 +12,7 @@
             android:id="@+id/nav_cotizaciones"
             android:icon="@drawable/ic_assessment_black_24dp"
             android:title="Cotizaciones" />
-        <item
-            android:id="@+id/nav_finanzas"
-            android:icon="@drawable/ic_monetization_on_black_24dp"
-            android:title="Finanzas" />
-        <item
-            android:id="@+id/nav_publicidad"
-            android:icon="@drawable/ic_monetization_on_black_24dp"
-            android:title="Publicidad" />
-        <item
-            android:id="@+id/nav_cotizaciones3"
-            android:icon="@drawable/ic_monetization_on_black_24dp"
-            android:title="Cotizaciones" />
+
     </group>
 
     <item android:title="Communicate">

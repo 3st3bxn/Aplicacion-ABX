@@ -120,7 +120,8 @@ public class Act_cotizaciones extends AppCompatActivity
 
         } else if (id == R.id.nav_salir) {
             finish();
-        }
+
+    }
 
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout_cotizaciones);
         drawer.closeDrawer(GravityCompat.START);

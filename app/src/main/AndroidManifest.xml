@@ -47,16 +47,13 @@
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity
-            android:name=".IntroduccionUno"
-            android:theme="@style/Theme.AppCompat.Light.NoActionBar"></activity>
+
         <activity
             android:name=".Introduccion_dos"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
         <activity
             android:name=".Introduccion_tres"
             android:theme="@style/Theme.AppCompat.Light.NoActionBar" />
-        <activity android:name=".Pag_Web"></activity>
     </application>
 
 </manifest>

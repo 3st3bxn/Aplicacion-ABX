@@ -20,7 +20,7 @@ public class Introduccion_dos extends AppCompatActivity {
     }
 
     public void Siguiente(View view){
-        Intent siguiente = new Intent(getApplicationContext(), Act_cotizaciones.class);
+        Intent siguiente = new Intent(getApplicationContext(), Introduccion_tres.class);
         startActivity(siguiente);
         finish();
     }

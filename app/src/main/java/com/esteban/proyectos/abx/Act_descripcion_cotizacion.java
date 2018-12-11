@@ -1,7 +1,9 @@
 package com.esteban.proyectos.abx;
 
+import android.content.DialogInterface;
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
@@ -74,7 +76,31 @@ public class Act_descripcion_cotizacion extends AppCompatActivity
         btn_editar.setVisibility(View.VISIBLE);
         btn_compartir.setVisibility(View.VISIBLE);
         btn_eliminar.setVisibility(View.VISIBLE);
+        btn_eliminar.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                AlertDialog.Builder alerta = new AlertDialog.Builder(Act_descripcion_cotizacion.this);
+                alerta.setMessage("¿Desea eliminar la cotización \"" + VariablesGlobales.COTIZACIONES.getCotizaciones().get(position).getNombre_cotizacion() + "\"?")
+                        .setPositiveButton("Si", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                finish();
+                            }
+                        })
+                        .setNegativeButton("No", new DialogInterface.OnClickListener() {
+                            @Override
+                            public void onClick(DialogInterface dialog, int which) {
+                                dialog.cancel();
+                            }
+                        });
+                AlertDialog titulo = alerta.create();
+                titulo.setTitle("Eliminar cotización");
+                titulo.show();
 
+            };
+
+
+        });
         btn_facturar.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -110,6 +136,10 @@ public class Act_descripcion_cotizacion extends AppCompatActivity
             }
         });
     }
+
+
+
+
     @Override
     public void onBackPressed() {
         DrawerLayout drawer = (DrawerLayout) findViewById(R.id.drawer_layout);

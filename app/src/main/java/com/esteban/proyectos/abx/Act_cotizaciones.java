@@ -49,10 +49,13 @@ public class Act_cotizaciones extends AppCompatActivity
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id) {
-                Toast.makeText(getApplicationContext(), "Posición "+position, Toast.LENGTH_SHORT).show();
-                /*Intent i = new Intent(getApplicationContext(), Act_descripcion_cotizacion.class);
-                i.putExtra("ID_COTIZACION",getApplicationContext().g);*/
 
+                //Toast.makeText(getApplicationContext(), "Posición "+position, Toast.LENGTH_SHORT).show();
+                Intent i = new Intent(getApplicationContext(), Act_descripcion_cotizacion.class);
+                i.putExtra("POSICION",""+position);
+
+                startActivity(i);
+                finish();
             }
         });
 
@@ -63,8 +66,6 @@ public class Act_cotizaciones extends AppCompatActivity
         startActivity(cotizacion);
         //finish();
     }
-
-
 
 
 

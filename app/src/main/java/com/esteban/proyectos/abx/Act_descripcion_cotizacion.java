@@ -2,6 +2,7 @@ package com.esteban.proyectos.abx;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.util.Log;
 import android.view.View;
 import android.support.design.widget.NavigationView;
 import android.support.v4.view.GravityCompat;
@@ -43,17 +44,29 @@ public class Act_descripcion_cotizacion extends AppCompatActivity
 
         NavigationView navigationView = (NavigationView) findViewById(R.id.nav_view);
         navigationView.setNavigationItemSelectedListener(this);
-        final String id_cotizacion = "1";
+
+
+
+        /*Bundle position*/
+        Log.e("Hola",getIntent().getStringExtra("POSICION"));
+        final int position = Integer.parseInt(getIntent().getStringExtra("POSICION"));
+
+        String id_cotizacion = (String)VariablesGlobales.COTIZACIONES.getCotizaciones().get(position).getId_cotizacion();
+        //Log.e("Log",VariablesGlobales.COTIZACIONES.getCotizaciones().get(position).getId_cotizacion());
+
         String json = "{\"id_cotizacion\" : \""+ id_cotizacion +"\"}";
 
         listView = (ListView)this.findViewById(R.id.lv_articulos_cotizacion);
+
+        new Peticiones(json, "consultarNombreCotizacion",Act_descripcion_cotizacion.this,listView).execute();
+
         new Peticiones(json,"consultarArticulosCotizacion",Act_descripcion_cotizacion.this,listView).execute();
 
-        btn_editar    = (Button)findViewById(R.id.btn_editar);
-        btn_agregar_art   = (Button)findViewById(R.id.btn_agregar_articulo);
-        btn_eliminar  = (Button)findViewById(R.id.btn_eliminar);
-        btn_compartir = (Button)findViewById(R.id.btn_compartir);
-        btn_facturar  = (Button)findViewById(R.id.btn_facturar);
+        btn_editar          = (Button)findViewById(R.id.btn_editar);
+        btn_agregar_art     = (Button)findViewById(R.id.btn_agregar_articulo);
+        btn_eliminar        = (Button)findViewById(R.id.btn_eliminar);
+        btn_compartir       = (Button)findViewById(R.id.btn_compartir);
+        btn_facturar        = (Button)findViewById(R.id.btn_facturar);
 
         btn_agregar_art.setVisibility(View.INVISIBLE);
         btn_facturar.setVisibility(View.INVISIBLE);
@@ -80,7 +93,7 @@ public class Act_descripcion_cotizacion extends AppCompatActivity
             @Override
             public void onClick(View v) {
                 Intent i = new Intent(getApplicationContext(),Agregar_articulos_cotizacion.class);
-                i.putExtra("id_cotizacion",id_cotizacion);
+                i.putExtra("POSICION",""+position);
                 startActivity(i);
             }
         });

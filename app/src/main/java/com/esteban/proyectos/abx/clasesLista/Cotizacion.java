@@ -39,7 +39,12 @@ public class Cotizacion implements Serializable {
     }
 
     public String getEstatus() {
-        return estatus;
+        if(estatus.equalsIgnoreCase("-1")){
+            return "Vacia";
+        }
+        else{
+            return "Facturada";
+        }
     }
 
     public void setEstatus(String estatus) {

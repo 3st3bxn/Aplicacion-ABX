@@ -31,28 +31,35 @@ public class Peticiones extends AsyncTask<String, String, String> {
     private Context  context;
     private Activity activity;
     private ListView listView;
+    private TextView textView;
 
 
     public Peticiones(String json, String metodoApi, Activity activity, ListView listView) {
-        this.json = json;
-        this.metodoApi = metodoApi;
-        this.activity = activity;
-        this.listView = listView;
-        this.spinner = null;
+        this.json       = json;
+        this.metodoApi  = metodoApi;
+        this.activity   = activity;
+        this.listView   = listView;
+        this.spinner    = null;
     }
 
     public Peticiones(String json, String metodoApi) {
-        this.json = json;
-        this.metodoApi = metodoApi;
-        this.spinner = null;
+        this.json       = json;
+        this.metodoApi  = metodoApi;
+        this.spinner    = null;
     }
     public Peticiones(String json, String metodoApi, Activity activity, Spinner spinner) {
-        this.json = json;
+        this.json       = json;
         this.metodoApi  = metodoApi;
         this.activity   = activity;
         this.listView   = null;
         this.spinner    = spinner;
     }
+    /*public Peticiones(String json, String metodoApi, Activity activity, TextView textView){
+        this.json       = json;
+        this.metodoApi  = metodoApi;
+        this.activity   = activity;
+        this.textView   = textView;
+    }*/
 
     @Override
     protected String doInBackground(String... strings) {
@@ -84,6 +91,7 @@ public class Peticiones extends AsyncTask<String, String, String> {
             try {
                 Gson gson = new Gson();
                 Cotizaciones cotizaciones = gson.fromJson(json,Cotizaciones.class);
+                VariablesGlobales.COTIZACIONES = cotizaciones;
                 //generar el adaptador
 
                 AdaptadorCotizaciones adaptador = new AdaptadorCotizaciones(cotizaciones.getCotizaciones(),this.activity);
@@ -117,6 +125,7 @@ public class Peticiones extends AsyncTask<String, String, String> {
                 Gson gson = new Gson();
                 Articulos articulos = gson.fromJson(json,Articulos.class);
                 //generar el adaptador
+                VariablesGlobales.ARTICULOS = articulos;
 
                 AdaptadorArticulosSpinner adaptador = new AdaptadorArticulosSpinner(articulos.getArticulos(),this.activity);
                 adaptador.notifyDataSetChanged();
@@ -126,7 +135,14 @@ public class Peticiones extends AsyncTask<String, String, String> {
                 }
             }catch (Exception error){}
         }
-
+        else if(this.metodoApi == "consultarNombreCotizacion"){
+            try{
+                TextView tv_nombre = (TextView)activity.findViewById(R.id.tv_titulo_descripcion_cotizacion);
+                Gson gson = new Gson();
+                Cotizaciones cotizaciones = gson.fromJson(json,Cotizaciones.class);
+                tv_nombre.setText(cotizaciones.getCotizaciones().get(0).getNombre_cotizacion());
+            }catch (Exception error){}
+        }
         else if(this.metodoApi == "consultarArticulosCotizacion"){
             try {
                 int i;
@@ -155,7 +171,6 @@ public class Peticiones extends AsyncTask<String, String, String> {
                 tv_subtotal.setText("$"+subtotal);
                 tv_iva.setText("$"+iva);
                 tv_total.setText("$" + total);
-                tv_nombre_cotizacion.setText(articulos_cotizacion.getArticulos_cotizacion().get(i-1).getNombre_cotizacion());
             }catch (Exception error){}
         }
     }
